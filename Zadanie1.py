@@ -10,7 +10,7 @@ df = pd.DataFrame({
 
 print(df, '\n')
 
-df['Средняя оценка'] = [3.5, 2.4, 4.6, 4.2, 5]
+df['Средняя балл'] = [3.5, 2.4, 4.6, 4.2, 5]
 print(df, '\n')
 pf = df
 
@@ -20,5 +20,9 @@ print(df, '\n')
 df = df.reset_index(drop=False)
 print(df, '\n')
 
-table = pd.pivot_table(pf, values='Средняя оценка', index=['Факультет', 'Студент'], aggfunc=numpy.sum)
+table = pd.pivot_table(pf, values='Средняя балл', index=['Факультет', 'Студент'], aggfunc=numpy.sum)
 print(table, '\n')
+
+ax = df.plot(xticks=df.index)
+ylab = ax.set_ylabel('Таблица')
+plt.show()
