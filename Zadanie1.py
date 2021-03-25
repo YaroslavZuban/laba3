@@ -14,8 +14,8 @@ df['Средняя балл'] = [3.5, 2.4, 4.6, 4.2, 5]
 print(df, '\n')
 pf = df
 
-df = df.groupby('Студент').mean()
-print(df, '\n')
+hl = df.groupby('Студент').agg('mean')
+print(hl, '\n')
 
 df = df.reset_index(drop=False)
 print(df, '\n')
@@ -23,6 +23,8 @@ print(df, '\n')
 table = pd.pivot_table(pf, values='Средняя балл', index=['Факультет', 'Студент'], aggfunc=numpy.sum)
 print(table, '\n')
 
-ax = df.plot(xticks=df.index)
-ylab = ax.set_ylabel('Таблица')
+# вывод графика виде точек
+
+for index, i in enumerate(df['Средняя балл']):
+    plt.plot(df.index[index], df.iloc[index]['Курс'], marker='.', linestyle='None', markersize=i * 4, color='b')
 plt.show()
