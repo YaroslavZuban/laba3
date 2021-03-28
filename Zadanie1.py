@@ -17,6 +17,14 @@ pf = df
 hl = df.groupby('Студент').agg('mean')
 print(hl, '\n')
 
+# загрузка таблицы с сайта
+url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/credit-screening/crx.data'
+data = pd.read_csv(url, header=None, na_values='?')
+print(data)
+
+print("\n")
+
+
 df = df.reset_index(drop=False)
 print(df, '\n')
 
