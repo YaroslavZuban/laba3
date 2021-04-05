@@ -1,4 +1,4 @@
-# Код работает в jupyter notebook, так что смело копируй и вставляй
+#10 Код работает в jupyter notebook, так что смело копируй и вставляй
 
 from IPython.display import display, Math
 
